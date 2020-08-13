@@ -1,7 +1,14 @@
-<h1>Welcome to cocktail heaven</h1>
+<div class="header-image" style="background-image: url('https://images.unsplash.com/photo-1562185669-3eca86dc3406?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2602&q=80')"><h1>Monday. Nothing a cocktail can’t fix.</h1></div>
 
-<ul></ul>
-  <% @cocktails.each do |cocktail| %>
-    <li> <%= cocktail.name %> </li>
-  <% end %>
-</ul>
+<div class="container margin-top-negative">
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail) do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cocktail.picture_url %>)">
+        <%= cocktail.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

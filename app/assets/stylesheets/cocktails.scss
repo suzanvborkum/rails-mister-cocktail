@@ -7,12 +7,12 @@
   align-items: center;
   color: white;
   font-size: 50px;
+  font-family: 'Pacifico', cursive;
 }
 
 .margin-top-negative {
   margin-top: -60px;
 }
-
 
 .cards {
   display: grid;
@@ -65,6 +65,7 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
+  font-family: 'Pacifico', cursive;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -94,6 +95,18 @@ ul {
 }
 
 .dose-form {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.header-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+}
+
+.review-form {
   background-color: white;
   padding: 20px;
   margin-top: 40px;

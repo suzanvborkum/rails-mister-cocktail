@@ -1,8 +1,16 @@
 <div class="container mt-4">
-  <h3 class="mb-3"><%= @cocktail.name %></h3>
+  <h3 class="header-name mb-3"><%= @cocktail.name %></h3>
   <div class="row">
     <div class="col-4">
       <div class="cocktail-image"><%= cl_image_tag @cocktail.photo.key %></div>
+      <h5 class="mt-4">Reviews:</h5>
+      <div>
+        <ul class="list-group mt-4">
+          <% @cocktail.reviews.each do |review| %>
+            <li><%= review.description %> - <%= review.rating %> stars </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
 
     <div class="col-8 cocktail-details">
@@ -11,7 +19,7 @@
         <ul class="list-group mt-4">
           <% @cocktail.doses.each do |dose| %>
             <li>
-              <%= dose.description %> of
+              <%= dose.description %>
               <%= dose.ingredient.name %>
               <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
                 <i class="far fa-trash-alt"></i>
@@ -29,14 +37,15 @@
           <%= f.button :submit, class: "btn btn-outline-danger" %>
         <% end %>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <%= simple_form_for @review do |f| %>
-      <%= f.input :description %>
-      <%= f.input :rating %>
-      <%= f.button :submit, class: 'btn btn-danger' %>
-    <% end %>
-  </div>
+
+      <h5 class="header-rating mt-4">What do you think about this cocktail?</h5>
+      <div class="review-form mt-4">
+        <%= simple_form_for [@cocktail, @review] do |f| %>
+          <%= f.input :description, label: "Tell us about the taste" %>
+          <%= f.input :rating, collection: (1..5).to_a %>
+          <%= f.button :submit, class: 'btn btn-outline-danger' %>
+        <% end %>
+      </div>
+
 </div>
 

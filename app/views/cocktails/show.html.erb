@@ -42,7 +42,7 @@
       <div class="review-form mt-4">
         <%= simple_form_for [@cocktail, @review] do |f| %>
           <%= f.input :description, label: "Tell us about the taste" %>
-          <%= f.input :rating, collection: (1..5).to_a %>
+          <%= f.input :rating %>
           <%= f.button :submit, class: 'btn btn-outline-danger' %>
         <% end %>
       </div>
